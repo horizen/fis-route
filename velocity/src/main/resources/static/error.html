@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>找不到网页</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
+        body{
+            font-family: "Microsoft Yahei","Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: #f7f7f7;
+            display: -webkit-box;
+            display: box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-orient: vertical;
+            box-orient: vertical;
+            -webkit-flex-flow: column;
+            flex-flow: column;
+            -webkit-box-align: center;
+            box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .wrapper{
+            display: table;
+            height: 100%;
+        }
+        .cell{
+            display: table-cell;
+            vertical-align: middle;
+        }
+        p{
+            font-size: medium;
+            color: darkgray;
+            padding-top: 10px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        a{
+            color: darkgray;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 16px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-decoration: none;
+            display: block;
+            margin: 0 auto;
+        }
+        a:active{
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="cell">
+            <img src="img/404-car-n.png" width="160" height="90">
+            <p>哎呀，页面出错啦~</p>
+            <a id="reload" href="javascript:;">重新加载</a>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var reload = document.getElementById('reload');
+        reload.addEventListener('click', function(){
+            window.location = document.referrer;
+        }, false)
+    </script>
+</body>
+</html>

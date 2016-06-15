@@ -1,0 +1,19 @@
+{
+    "fis_addrs":["127.0.0.1:8001"],
+    "resource_path":"/var/www/static",
+
+    "server_name":"127.0.0.1",
+    "server_port":"8000",
+    "server_prefix":"/test",
+    "server_addrs":["127.0.0.1:8002"],
+    "intra_allow_ips":["127.0.0.1"],
+
+    "index_page": "/page/home",
+    "error_page": "/error.html",
+
+    "page":{
+        "/page/home":true,
+        "/page/detail":true,
+        "/page/test":false
+    }
+}

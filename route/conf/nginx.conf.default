@@ -1,0 +1,63 @@
+worker_processes  auto;
+
+#worker_rlimit_core      10G;
+#worker_rlimit_nofile    100000;
+
+error_log logs/error.log warn;
+
+events {
+    use epoll;
+    worker_connections  102400;
+}
+
+http {
+    open_file_cache max=5000 inactive=60;
+
+    log_format main '$remote_addr - $remote_user [$time_local]  '
+        '"$request" $status $request_length $request_time $body_bytes_sent '
+        '"$http_referer" "$http_user_agent" $server_addr $upstream_addr $host $upstream_cache_status $scheme '
+        'upstream_response_time:$upstream_response_time upstream_status:$upstream_status';
+
+    access_log  logs/access.log  main;
+
+    sendfile    on;
+    tcp_nopush  on;
+
+    server_tokens      off;
+    keepalive_requests 50000;
+    keepalive_timeout  200;
+
+    client_header_timeout   2s;
+    client_body_buffer_size    256k;
+    client_max_body_size    3m;
+
+    expires off;
+
+    gzip  on;
+    gzip_http_version       1.0;
+    gzip_comp_level     1;
+    gzip_min_length     1024;
+    gzip_proxied        any;
+    gzip_vary           on;
+    gzip_disable        msie6;
+    gzip_buffers        256 8k;
+    gzip_types          text/xml text/plain text/css application/javascript application/x-javascript application/rss+xml;
+
+    #nginx会把http header里面的Host字段的端口去掉，重定向的时候会出问题
+    proxy_set_header    Host $host:$server_port;
+    proxy_set_header    Connection "";
+    proxy_set_header    Cookie $http_cookie;
+    proxy_http_version  1.1;
+    proxy_redirect      off;
+    proxy_buffers       256 16k;
+    proxy_intercept_errors  on;
+
+    lua_package_path '${prefix}lib/?.lua;${prefix}src/lua/?.lua;;';
+
+ 
+    init_by_lua_file src/lua/init.lua;
+
+    include mime.types;
+    include upstream.conf;
+
+    ###project conf follow###
