@@ -10,7 +10,7 @@
     </parent>
 
     <packaging>war</packaging>
-    <groupId>com.xiaoju.comp</groupId>
+    <groupId>com.xxx</groupId>
     <artifactId>route-velocity</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 

@@ -7,8 +7,8 @@ function init()
 
     if [ -f "./sbin/nginx" ]; then
         NGINX_PATH=.
-    elif [ -d "/home/xiaoju/openresty/nginx" ]; then
-        NGINX_PATH=/home/xiaoju/openresty/nginx
+    elif [ -d "/home/xxx/openresty/nginx" ]; then
+        NGINX_PATH=/home/xxx/openresty/nginx
     else
         NGINX_PATH=/usr/local/openresty/nginx
     fi

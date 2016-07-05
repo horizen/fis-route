@@ -5,8 +5,8 @@ cd ..
 
 if [ -f ../bin/resty ]; then
     resty=../bin/resty
-elif [ -f /home/xiaoju/openresty/bin/resty ]; then
-    resty=/home/xiaoju/openresty/bin/resty
+elif [ -f /home/xxx/openresty/bin/resty ]; then
+    resty=/home/xxx/openresty/bin/resty
 elif [ -f /usr/local/openresty/bin/resty ]; then
     resty=/usr/local/openresty/bin/resty
 else

@@ -1,8 +1,8 @@
 #!/bin/bash
 
 init () {
-    nginx_logs_dir=/home/xiaoju/fis-route/logs
-    tomcat_logs_dir=/home/xiaoju/fis-tomcat/logs
+    nginx_logs_dir=/home/xxx/fis-route/logs
+    tomcat_logs_dir=/home/xxx/fis-tomcat/logs
 
     backup_date=$(date +"%Y-%m-%d" -d -1day)
 

@@ -2,8 +2,8 @@
 
 del_date=$(date +"%Y-%m-%d" -d -7day)
 
-cd /home/xiaoju/fis-route/logs
+cd /home/xxx/fis-route/logs
 rm -rf ${del_date}
 
-cd /home/xiaoju/fis-tomcat/logs
+cd /home/xxx/fis-tomcat/logs
 rm -rf ${del_date}
